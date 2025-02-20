@@ -1,3 +1,21 @@
+/* Import Google Sans font */
+@font-face {
+    font-family: 'Google Sans';
+    src: url('https://fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('https://fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94YtzCwM.woff2') format('woff2');
+    font-weight: 500;
+}
+
+/* Set Google Sans as default font */
+* {
+    font-family: 'Google Sans', sans-serif;
+}
+
 /* Global Styles */
 :root {
     --primary-color: #1a73e8;
@@ -21,88 +39,131 @@ body {
     line-height: 1.5;
 }
 
-/* Header Styles */
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #dadce0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background: white;
     z-index: 1001;
-    height: 30px;
-  
+    box-shadow: 0 1px 2px rgba(60,64,67,0.3);
+    height: 64px;
+    padding: 0 24px;
+    align-items: center;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 12px;
 }
 
-.business-text {
-    font-size: 1.25rem;
-    color:#5f6368;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0 48px;
 }
 
 .header-right {
     display: flex;
-    gap: 1rem;
+    gap: 12px;
+    margin-left: auto;
 }
 
-/* Navigation Styles */
-.navbar {
+.business-text {
+    font-size: 1.25rem;
+    color: #5f6368;
+    margin-left: 40px;
+}
+
+.google-logo {
+    height: 59px;
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+.mobile-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+    height: 100px;
     background: white;
-    border-bottom: 0px solid var(--border-color);
     position: fixed;
-    top: 64px;
+    top: 150px;
     left: 0;
     right: 0;
-    z-index: 1000;
-    height: 80px;
+    z-index: 1001;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 3px 5px rgba(60,64,67,0.3);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.desktop-nav {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: white;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border-color);
     box-shadow: 0 1px 2px rgba(60,64,67,0.3);
 }
 
-.nav-wrapper {
-    height: 100%;
+
+
+/* Left section with logo */
+.header-left img {
+    height: 25px;
+    margin-left: 2px;
+    margin-bottom: 20px;
 }
 
-.nav-links {
-    height: 100%;
+/* Right section with buttons */
+.header-right {
     display: flex;
-    align-items: left;
-    padding-left: 80px;
+    gap: 12px;
+    margin-left: auto;
 }
 
+/* Remove unused styles */
+.header-top, .navbar, .nav-wrapper {
+    display: none;
+}
+
+/* Navigation Styles */
 .nav-link {
     text-decoration: none;
-    color: #5f6368;
+    color: var(--secondary-text);
     font-size: 14px;
-    height: 100%;
+    padding: 0 8px;
+    height: 48px;
     display: flex;
     align-items: center;
-    padding: 0 16px;
     position: relative;
-    font-weight: 400;
-}
-
-.nav-link:hover {
-    color: #202124;
-    background-color: #f1f3f4;
 }
 
 .nav-link.active {
-    color: black;
+    color: var(--text-color);
     font-weight: 500;
-}
-
-.nav-link.active:hover {
-    background-color: transparent;
-    color: var(--google-blue);
+    margin-bottom: -1;
 }
 
 .nav-link.active::after {
@@ -113,10 +174,10 @@ body {
     width: 100%;
     height: 2px;
     background: var(--google-blue);
-    margin-bottom: 10px;
+    margin-bottom: -8px;
 }
 
-/* Add dropdown arrow */
+/* Change the dropdown arrow selector to only target Business Solutions */
 .dropdown .nav-link::after {
     content: '';
     width: 0;
@@ -125,6 +186,44 @@ body {
     border-right: 4px solid transparent;
     border-top: 4px solid currentColor;
     margin-left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Add back the dropdown content styles with better positioning and styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);  /* Position below the nav link */
+    left: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    padding: 12px 24px;
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f3f4;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Hero Section */
@@ -136,11 +235,11 @@ body {
     margin: 0 auto;
     align-items: center;
     padding: 80px 80px;
+    margin-left: 100px ;
 }
 
 .hero-content {
-    max-width: 400px;
-    margin-right: auto;
+    max-width: 500px;
 }
 
 .hero-content h1 {
@@ -167,11 +266,13 @@ body {
 
 .phone__scene {
     position: relative;
-    width: 360px;
+    width: 320px;
+    height: auto;
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     overflow: hidden;
+    margin-right: 150px;
 }
 
 .business-hero img {
@@ -341,41 +442,7 @@ body {
 
 /* Dropdown Menu */
 .dropdown {
-    height: 100%;
-    display: flex;
-    align-items: center;
     position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    background: white;
-    min-width: 240px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    padding: 8px 0;
-    z-index: 1000;
-}
-
-.dropdown-content a {
-    padding: 12px 24px;
-    font-size: 14px;
-    color: var(--text-color);
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.2s;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f3f4;
 }
 
 /* Show dropdown on hover */
@@ -605,6 +672,14 @@ footer p {
     .hero-section {
         padding: 80px 40px;
     }
+
+    .phone__scene {
+        width: 280px;
+    }
+
+    .business-hero img {
+        width: 280px;
+    }
 }
 
 @media (max-width: 960px) {
@@ -625,8 +700,11 @@ footer p {
     }
 
     .phone__scene {
-        width: 100%;
-        max-width: 400px;
+        width: 320px;
+    }
+
+    .business-hero img {
+        width: 320px;
     }
 }
 
@@ -750,6 +828,7 @@ footer p {
 }
 
 /* Orbital Animation */
+/*
 .orbital-dots__holder {
     position: absolute;
     width: 540px;
@@ -757,6 +836,7 @@ footer p {
     z-index: 0;
     right: 0;
 }
+*/
 
 .scroll-circle--dot {
     position: absolute;
@@ -1134,9 +1214,9 @@ footer p {
     margin: 0 auto;
 }
 
-/* Add padding to main to account for fixed header and navbar */
+/* Update main padding to account for new header height */
 main {
-    padding-top: 128px; /* Combined height of header and navbar */
+    padding-top: 200px;
 }
 
 .manage-profile-section {
@@ -1278,6 +1358,177 @@ main {
 
 .footer-legal a:hover {
     color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+    .nav-links {
+        gap: 16px;
+        margin: 0 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide desktop elements */
+    .nav-links, .header-right, .business-text {
+        display: none;
+    }
+
+    /* Adjust header for mobile */
+    .header {
+        height: 60px;
+        padding: 0 24px;
+        justify-content: flex-start;
+        border-bottom: 1px solid var(--border-color);  /* Add separation line */
+        box-shadow: none;  /* Remove shadow from top bar */
+    }
+
+    .google-logo {
+        height: 24px;
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+
+    /* Add mobile nav bar below header */
+    .header::after {
+        content: '';
+        position: fixed;
+        top: 60px;  /* Align exactly with header bottom */
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: white;
+        z-index: 1001;
+        border-top: 1px solid var(--border-color);  /* Add top border */
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 2px 3px rgba(60,64,67,0.2);
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+    }
+
+    /* Add burger menu */
+    .header::before {
+        content: '';
+        position: fixed;
+        top: 85px;
+        left: 24px;
+        width: 18px;
+        height: 2px;
+        background: var(--text-color);
+        box-shadow: 0 -6px 0 var(--text-color), 0 6px 0 var(--text-color);
+        z-index: 1002;
+        margin-left: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+    /* Add "Business Profile" text */
+    .header-left::after {
+        content: 'Business Profile';
+        position: fixed;
+        top: 60px;
+        left: 80px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        font-size: 23px;
+        color: var(--text-color);
+        z-index: 1002;
+        margin-left: -10px;
+    }
+
+    /* Adjust main content padding */
+    main {
+        padding-top: 120px;  /* 60px header + 60px nav */
+    }
+
+    /* Sidebar styles */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        z-index: 1004;
+        transition: left 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        padding: 120px 0 0 0;  /* Start below both headers */
+        margin: 0;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    }
+
+    /* Style nav links in sidebar */
+    .nav-links a {
+        padding: 16px 24px;
+        font-size: 16px;
+        color: var(--text-color);
+        text-decoration: none;
+        border-bottom: none;
+        height: 20px;
+        text-align: left;
+        margin-left: -130px;
+    }
+
+    .nav-links a.active {
+        background: #f1f3f4;
+        border-radius: 0 24px 24px 0;
+        width: 120px;
+    }
+
+    /* Dropdown styles */
+    .dropdown-content {
+        display: none;
+        flex-direction: column;
+        padding-left: 24px;
+    }
+
+    .dropdown-content a {
+        padding: 8px 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+
+    /* Move buttons to bottom of sidebar */
+    .header-right {
+        position: fixed;
+        bottom: 0;
+        left: -280px;
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        background: white;
+        border-top: 1px solid var(--border-color);
+        z-index: 1004;
+        transition: left 0.3s ease;
+    }
+
+    /* Add overlay */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1003;
+        display: none;
+    }
+
+    /* Show sidebar when active */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .header-right.active {
+        left: 0;
+    }
 }
 
   
