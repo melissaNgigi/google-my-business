@@ -14,18 +14,17 @@
         </div>
         
         <nav class="nav-links">
-
             <div class="sidebar-header">
                 <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google Logo" class="google-logo">
-              </div>
+            </div>
 
-              <div class="sidebar-section">
+            <div class="sidebar-section">
                 <span class="your-text">Business Profile</span>
-              </div>
+            </div>
 
             <a href="#" class="nav-link active">Overview</a>
             <div class="dropdown">
-                <a href="#" class="nav-link">Business Solutions</a>
+                <a href="#" class="nav-link dropdown-toggle">Business Solutions</a>
                 <div class="dropdown-content">
                     <a href="#">Restaurants</a>
                     <a href="#">Retail</a>
@@ -34,7 +33,11 @@
             </div>
             <a href="#" class="nav-link">Resources</a>
             <a href="#" class="nav-link">FAQs</a>
-        
+
+            <div class="sidebar-buttons">
+                <button class="sidebar-profile">Manage now</button>
+                <button class="sidebar-signin">Sign in</button>
+            </div>
         </nav>
 
         <div class="header-right">
@@ -424,6 +427,13 @@
 </footer>
 
     <script>
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownToggle.addEventListener('click', () => {
+        dropdownContent.classList.toggle('show');
+        });
+
         document.querySelectorAll('.your-questions-answered-section .dropdown').forEach(dropdown => {
             dropdown.addEventListener('click', () => {
                 // Remove active class from all dropdowns

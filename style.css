@@ -1516,11 +1516,35 @@ main {
     .dropdown-content {
         display: none;
         padding-left: 24px;
+        position: static;
+        box-shadow: none;
+        background: transparent;
     }
 
     .dropdown-content a {
+        border-bottom: none; /* Remove the border lines */
         padding: 8px 24px;
         font-size: 14px;
+    }
+
+    .dropdown-content.active {
+        display: block;
+    }
+
+    .dropdown-content.show {
+        display: block;
+      }
+
+    .dropdown {
+        position: static;
+    }
+
+    .dropdown .nav-link::after {
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.active .nav-link::after {
+        transform: rotate(180deg);
     }
 
     /* Move buttons to bottom of sidebar */
@@ -1559,6 +1583,33 @@ main {
     .header-right.active {
         left: 0;
     }
-}
 
-  
+    .sidebar-profile {
+        background: var(--google-blue);
+        color: white;
+        border: none;
+        padding: 13px;
+        width: 264px;
+        border-radius: 6px;
+        margin-left: 9px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .sidebar-signin {
+        color: var(--google-blue);
+        border: none;
+        background: none;
+        font-size: 18px;
+        align-items: center;
+        margin-left: 100px;
+    }
+
+    .sidebar-buttons {
+        margin-top: 166px;
+        border-top: 1px solid var(--border-color);
+       
+    
+}
