@@ -1360,12 +1360,16 @@ main {
     color: var(--text-color);
 }
 
-/* Responsive adjustments */
-@media (max-width: 960px) {
-    .nav-links {
-        gap: 16px;
-        margin: 0 24px;
-    }
+.sidebar-header{
+    display: none;
+}
+
+.sidebar-section{
+    display: none;
+}
+
+.sidebar-buttons{
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -1374,6 +1378,20 @@ main {
         display: none;
     }
 
+    .sidebar-header{
+        display: block;
+    }
+
+    .sidebar-section{
+        display: block;
+    }
+
+    .sidebar-buttons{
+        display: block;
+    }
+
+
+    .
     /* Adjust header for mobile */
     .header {
         height: 60px;
@@ -1584,32 +1602,11 @@ main {
         left: 0;
     }
 
-    .sidebar-profile {
-        background: var(--google-blue);
-        color: white;
-        border: none;
-        padding: 13px;
-        width: 264px;
-        border-radius: 6px;
-        margin-left: 9px;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        font-size: 18px;
-        text-align: center;
-    }
-    
-    .sidebar-signin {
-        color: var(--google-blue);
-        border: none;
-        background: none;
-        font-size: 18px;
-        align-items: center;
-        margin-left: 100px;
-    }
 
-    .sidebar-buttons {
-        margin-top: 166px;
-        border-top: 1px solid var(--border-color);
-       
-    
+    @media (max-width: 960px) {
+        .nav-links {
+            gap: 16px;
+            margin: 0 24px;
+        }
+    }
 }
