@@ -1372,7 +1372,62 @@ main {
     display: none;
 }
 
+.responsive-hero-content{
+    display: none;
+}
+
 @media (max-width: 768px) {
+    html, body {
+        max-width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    main {
+        width: 100%;
+        overflow-x: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .responsive-hero-section {
+        padding: 24px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .hero-section {
+        padding: 30px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: -20px;
+        
+    }
+
+    .phone__scene {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .business-hero img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
     /* Hide desktop elements */
     .nav-links, .header-right, .business-text {
         display: none;
@@ -1390,9 +1445,37 @@ main {
         display: block;
     }
 
+    .sidebar-profile{
+        background-color: var(--google-blue);
+        border: none;
+        padding: 16px;
+        width: 240px;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
 
-    .
+    .sidebar-signin{
+        background: none;
+        border: none;
+        color: var(--google-blue);
+        font-size: 16px;
+        margin-left: 100px;
+        margin-top: 10px;
+    }
+
+    .sidebar-buttons{
+        margin-top: 140px;
+        border-top: 1px solid var(--border-color);
+    }
     /* Adjust header for mobile */
+   
+    .responsive-hero-content{
+        display: block;
+    }
+    
     .header {
         height: 60px;
         padding: 0 24px;
@@ -1421,12 +1504,13 @@ main {
         border-bottom: 1px solid var(--border-color);
         padding: 12px;
         width: 256px;
-        height: 20px;
+        height: 11px;
     }
 
     .your-text{
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-top: -100px;
+        padding-top: -500px;
     }
 
     /* Add mobile nav bar below header */
@@ -1603,10 +1687,53 @@ main {
     }
 
 
-    @media (max-width: 960px) {
-        .nav-links {
-            gap: 16px;
-            margin: 0 24px;
-        }
+    .hero-content p{
+        display: none; /* Hide desktop content */
     }
+    .cta-button{
+        display: none; /* Hide desktop content */
+    }
+    
+
+    .hero-content h1{
+        font-size: 26px;
+
+    .responsive-hero-content {
+        display: block;
+        text-align: center;
+        padding: 24px;
+        margin-top: 24px;
+    }
+
+    .responsive-hero-content h1 {
+        font-size: 36px;
+        margin-bottom: 16px;
+        color: var(--text-color);
+    }
+
+    .responsive-hero-content p {
+        font-size: 16px;
+        color: var(--secondary-text);
+        margin-bottom: 24px;
+    }
+
+    .responsive-hero-content .cta-button {
+        padding: 12px 24px;
+        font-size: 16px;
+        background: var(--google-blue);
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* Phone scene adjustments */
+    .phone__scene {
+        width: 280px;
+        margin: 0 auto;
+    }
+
+    .business-hero img {
+        width: 280px;
+    }
+}
 }
