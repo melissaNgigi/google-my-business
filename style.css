@@ -1727,6 +1727,7 @@ main {
 
     .hero-content h1{
         font-size: 26px;
+    }
 
     .responsive-hero-content {
         display: block;
@@ -1765,7 +1766,7 @@ main {
     .business-hero img {
         width: 280px;
     }
-}
+
     .benefits-grid {
         display: flex;
         flex-direction: column; 
@@ -1853,5 +1854,66 @@ main {
     .manage-profile-section li p {
         text-align: center; 
         max-width: 100%;
+    }
+
+    .take-charge-section {
+        text-align: center; /* Center text content */
+    }
+    
+    .benefits-grid {
+        display: flex;
+        flex-direction: column; /* Change to column to stack content vertically */
+        align-items: center; /* Center content horizontally */
+    }
+    
+    .benefits-image {
+        margin: 0 auto; /* Center the image horizontally */
+    }
+    .benefits-image {
+        margin-left: auto; /* Center image horizontally */
+        margin-right: auto;
+        display: block; 
+    }
+    
+    .benefit-card {
+        margin-left: auto; /* Center card content horizontally */
+        margin-right: auto;
+    }
+    
+    .benefit-card h3 {
+        text-align: center; /* Center heading text */
+    }
+    
+    .benefit-card p {
+        text-align: center; /* Center paragraph text */
+    }
+
+    .easily-connect-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .easily-connect-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+        width: 80%;
+        margin: 0 auto;
+    }
+    .easily-connect-card {
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .easily-connect-card img {
+        display: block; 
+        margin: 0 auto; 
+        max-width: 100%; 
+    }
+
+    .easily-connect-card h3, .easily-connect-card p {
+        text-align: center; 
     }
 }
