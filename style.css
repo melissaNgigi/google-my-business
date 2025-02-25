@@ -237,7 +237,13 @@ body {
     padding: 80px 80px;
     margin-left: 100px ;
 }
-
+.hero-section h1{
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    font-weight: 400;
+    color: #202124;
+}
 .hero-content {
     max-width: 500px;
 }
@@ -260,7 +266,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
+    /* display: flex; */
     justify-content: flex-end;
 }
 
@@ -419,6 +425,7 @@ body {
     cursor: pointer;
     border: none;
     font-size: 16px;
+    width: 220px;
 }
 
 .signin-button:hover {
@@ -434,6 +441,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     font-size: 16px;
+    width: 220px;
 }
 
 .profile-button:hover {
@@ -682,7 +690,7 @@ footer p {
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .hero-section {
         grid-template-columns: 1fr;
         text-align: center;
@@ -702,9 +710,26 @@ footer p {
     .phone__scene {
         width: 320px;
     }
+    .features-grid {
+        grid-template-columns: 1fr; 
+    }
 
     .business-hero img {
         width: 320px;
+    }
+    .easily-connect-grid {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .easily-connect-grid img {
+        align-self: center; 
+        max-width: 100%; 
+        height: auto; 
+    }
+    .easily-connect-container{
+        align-items: center;
     }
 }
 
@@ -1235,34 +1260,36 @@ main {
     gap: 50px; /* Increased gap between items */
 }
 
+/* Ensure li elements have a fixed width */
 .manage-profile-section li {
     position: relative;
     flex: 1;
     padding-left: 0;
     text-align: left;
-    width: 300px; /* Reduced from 300px to make text content narrower */
+    width: 300px; /* Maintains structure on larger screens */
 }
 
+/* Style for numbers before li */
 .manage-profile-section li::before {
     content: attr(data-number);
     position: absolute;
-    left: -50px;  /* Move numbers to the right of the text */
+    left: -50px; /* Move numbers to the left */
     top: -40px;
     font-size: 140px;
     color: #f1f3f4;
     font-weight: bold;
-    z-index: 0;  /* Keep numbers behind the text */
+    z-index: 0; /* Keep numbers behind the text */
     opacity: 1;
 }
 
 .manage-profile-section li h2,
 .manage-profile-section li p {
     position: relative;
-    z-index: 1;  /* Keep text above the numbers */
+    z-index: 1; /* Keep text above the numbers */
 }
 
 .manage-profile-section li p {
-    max-width: 220px; /* Limit the paragraph width */
+    max-width: 220px; /* Limit paragraph width */
 }
 
 .manage-profile-section button {
@@ -1376,7 +1403,7 @@ main {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     html, body {
         max-width: 100vw;
         overflow-x: hidden;
@@ -1431,6 +1458,7 @@ main {
     /* Hide desktop elements */
     .nav-links, .header-right, .business-text {
         display: none;
+        overflow-y: auto;
     }
 
     .sidebar-header{
@@ -1449,7 +1477,7 @@ main {
         background-color: var(--google-blue);
         border: none;
         padding: 16px;
-        width: 240px;
+        width: 220px;
         color: white;
         font-size: 16px;
         border-radius: 6px;
@@ -1464,11 +1492,13 @@ main {
         font-size: 16px;
         margin-left: 100px;
         margin-top: 10px;
+        
     }
 
     .sidebar-buttons{
         margin-top: 140px;
         border-top: 1px solid var(--border-color);
+        width: 220px;
     }
     /* Adjust header for mobile */
    
@@ -1736,4 +1766,92 @@ main {
         width: 280px;
     }
 }
+    .benefits-grid {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+
+    .benefits-grid > *:first-child {
+        order: 2; 
+    }
+
+    .benefits-grid > *:last-child {
+        order: 1; /* Move second item to first */
+    }
+    .benefits-grid img {
+        width: 480px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .show-what-you-offer-content {
+        flex-direction: column; 
+        gap: 30px; 
+        align-items: center; 
+        text-align: center; 
+        margin-left: -40px;
+        justify-content: center;
+    }
+
+    
+    .know-how-customers-find-grid {
+        flex-direction: column; 
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* Ensure the div (2nd item) is also stacked properly */
+    .know-how-customers-find-grid > *:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .know-how-customers-find-grid > *:nth-child(2) img {
+        margin: 0 auto; /* Add this line to center the image horizontally */
+    }
+
+    /* Move h2 to the top of the entire section */
+    .know-how-customers-find-grid > *:nth-child(2) h2 {
+        order: -2; /* Ensures it appears before everything */
+    }
+
+    /* Other elements in the div remain in normal order */
+    .know-how-customers-find-grid > *:nth-child(2) *:not(h2) {
+        order: 0; 
+    }
+    .manage-profile-section ul {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px;
+    }
+
+    .manage-profile-section li {
+        width: 100%; 
+        text-align: center;
+    }
+    
+    /* Adjust numbering position on small screens */
+    .manage-profile-section li::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px;
+        font-size: 100px;
+        text-align: center; /* Add this line to center the numbering */
+    }
+    
+    .manage-profile-section li h2 {
+        margin-top: 80px;
+        text-align: center;
+        margin-left: auto; /* Add this line to center the heading horizontally */
+        margin-right: auto;
+    }
+    .manage-profile-section li p {
+        text-align: center; 
+        max-width: 100%;
+    }
 }
